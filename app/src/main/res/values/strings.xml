@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">APK Scanner</string>
+    <string name="no_version_provided">No Version Available</string>
 </resources>

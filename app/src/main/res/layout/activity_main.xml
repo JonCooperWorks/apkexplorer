@@ -7,31 +7,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="65dp">
-
-        <EditText
-            android:id="@+id/packageNameEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textUri"
-            android:text="Package Name" />
-
-        <Button
-            android:id="@+id/scanAppButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scan" />
-    </LinearLayout>
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/packagesList"
         android:layout_width="match_parent"
