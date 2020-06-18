@@ -1,4 +1,4 @@
-package com.cooperthecoder.apkscan
+package com.cooperthecoder.apkscan.main
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.cooperthecoder.apkscan.R
+import com.cooperthecoder.apkscan.scanresults.ScanResultsActivity
 
 class PackagesListAdapter(private val context: Context) : RecyclerView.Adapter<PackagesListAdapter.Holder>() {
 

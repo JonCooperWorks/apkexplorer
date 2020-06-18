@@ -1,6 +1,7 @@
-package com.cooperthecoder.apkscan
+package com.cooperthecoder.apkscan.types
 
 import android.content.pm.*
+import android.graphics.drawable.Drawable
 import java.io.File
 
 data class InstalledAppInfo(
@@ -9,10 +10,11 @@ data class InstalledAppInfo(
     val receivers: Array<ActivityInfo>,
     val services: Array<ServiceInfo>,
     val providers: Array<ProviderInfo>,
-    val publicFileNames: Iterator<File>,
+    val publicFiles: List<File>,
     val sharedLibraries: Array<String>,
     val permissions: Array<PermissionInfo>,
-    val version: String
+    val version: String,
+    val icon: Drawable
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -25,10 +27,11 @@ data class InstalledAppInfo(
         if (!receivers.contentEquals(other.receivers)) return false
         if (!services.contentEquals(other.services)) return false
         if (!providers.contentEquals(other.providers)) return false
-        if (publicFileNames != other.publicFileNames) return false
+        if (publicFiles != other.publicFiles) return false
         if (!sharedLibraries.contentEquals(other.sharedLibraries)) return false
         if (!permissions.contentEquals(other.permissions)) return false
         if (version != other.version) return false
+        if (icon != other.icon) return false
 
         return true
     }
@@ -39,10 +42,12 @@ data class InstalledAppInfo(
         result = 31 * result + receivers.contentHashCode()
         result = 31 * result + services.contentHashCode()
         result = 31 * result + providers.contentHashCode()
-        result = 31 * result + publicFileNames.hashCode()
+        result = 31 * result + publicFiles.hashCode()
         result = 31 * result + sharedLibraries.contentHashCode()
         result = 31 * result + permissions.contentHashCode()
         result = 31 * result + version.hashCode()
+        result = 31 * result + icon.hashCode()
         return result
     }
+
 }

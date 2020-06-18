@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">APK Scanner</string>
     <string name="no_version_provided">No Version Available</string>
+    <string name="app_info_header_text">App Info</string>
+    <string name="files_header_text">Public Files</string>
+    <string name="activity_header_text">Activities</string>
+    <string name="permission_header_text">Permissions</string>
+    <string name="shared_library_header_text">Shared Libraries</string>
+    <string name="service_header_text">Services</string>
+    <string name="receiver_header_text">Receivers</string>
+    <string name="provider_header_text">Providers</string>
 </resources>
