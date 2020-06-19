@@ -54,6 +54,8 @@ class ActivitySection(private val activities: Array<ActivityInfo>) : Section(
         if (flags.isNotEmpty()) {
             val enabledFlagString = "Flags:\n${flags.joinToString("\n")}"
             vh.flags.text = enabledFlagString
+        } else {
+            vh.flags.visibility = View.GONE
         }
 
     }

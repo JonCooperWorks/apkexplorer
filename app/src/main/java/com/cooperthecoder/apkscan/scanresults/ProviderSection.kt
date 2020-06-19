@@ -81,6 +81,8 @@ class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
         if (flags.isNotEmpty()) {
             val enabledFlagString = "Flags:\n${flags.joinToString("\n")}"
             vh.flags.text = enabledFlagString
+        } else {
+            vh.flags.visibility = View.GONE
         }
     }
 

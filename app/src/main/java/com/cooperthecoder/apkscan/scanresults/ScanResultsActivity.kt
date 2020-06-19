@@ -28,6 +28,8 @@ class ScanResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan_results)
 
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         val sectionedAdapter = SectionedRecyclerViewAdapter()
         scanResultsList.adapter = sectionedAdapter
         scanResultsList.layoutManager = LinearLayoutManager(this)
@@ -112,6 +114,7 @@ class ScanResultsActivity : AppCompatActivity() {
                     sectionedAdapter.notifyDataSetChanged()
                 },
                 { exception ->
+                    // TODO: Handle errors caused by dead PackageManager
                     exception.printStackTrace()
                     AlertDialog.Builder(this)
                         .setMessage(exception.message)
