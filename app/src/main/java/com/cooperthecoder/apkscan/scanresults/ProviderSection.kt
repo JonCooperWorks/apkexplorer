@@ -72,10 +72,40 @@ class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
             "Single Process"
         }
 
-        vh.readPermission.text = providerInfo.readPermission
-        vh.writePermission.text = providerInfo.writePermission
-        vh.pathPermissions.text = providerInfo.pathPermissions?.joinToString(", ") ?: ""
+        if (providerInfo.readPermission != "") {
+            vh.readPermission.text = providerInfo.readPermission
+        } else {
+            vh.readPermission.visibility = View.GONE
+        }
 
+        if (providerInfo.writePermission != "") {
+
+        } else {
+            vh.writePermission.visibility = View.GONE
+        }
+
+        val pathPermissions = providerInfo.pathPermissions?.joinToString(", ")
+        if (pathPermissions ?: "" != "") {
+            vh.pathPermissions.text = providerInfo.pathPermissions!!.joinToString(" ,")
+        } else {
+            vh.writePermission.visibility = View.GONE
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            vh.forceUriPermissionStatus.text = if (providerInfo.forceUriPermissions) {
+                "Force URI Permissions: enabled"
+            } else {
+                "Force URI Permissions: disabled"
+            }
+        } else {
+            vh.forceUriPermissionStatus.visibility = View.GONE
+        }
+
+        vh.grantUriPermissionStatus.text = if (providerInfo.grantUriPermissions) {
+            "Grant URI Permissions: enabled"
+        } else {
+            "Grant URI Permissions: disabled"
+        }
 
         val flags = BinaryFlagUtils.getEnabledFlags(providerInfo)
         if (flags.isNotEmpty()) {
