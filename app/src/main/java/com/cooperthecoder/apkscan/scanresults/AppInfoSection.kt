@@ -1,6 +1,5 @@
 package com.cooperthecoder.apkscan.scanresults
 
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,7 +8,6 @@ import com.cooperthecoder.apkscan.R
 import com.cooperthecoder.apkscan.types.InstalledAppInfo
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
-import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 
 class AppInfoSection(private val appInfo: InstalledAppInfo) : Section(
     SectionParameters.builder()
@@ -37,9 +35,5 @@ class AppInfoSection(private val appInfo: InstalledAppInfo) : Section(
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
         return AppInfoHolder(view)
-    }
-
-    override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return EmptyViewHolder(view)
     }
 }
