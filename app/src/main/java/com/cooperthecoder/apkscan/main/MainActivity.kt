@@ -14,8 +14,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val adapter = PackagesListAdapter(this)
-        packagesList.adapter = adapter
         packagesList.layoutManager = LinearLayoutManager(this)
 
         Flowable.fromCallable {
@@ -25,7 +23,8 @@ class MainActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { packages ->
-                adapter.addPackages(packages)
+                val adapter = PackagesListAdapter(this, packages)
+                packagesList.adapter = adapter
             }
     }
 }

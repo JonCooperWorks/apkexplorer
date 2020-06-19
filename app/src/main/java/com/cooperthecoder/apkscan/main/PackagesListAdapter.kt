@@ -12,12 +12,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
 import com.cooperthecoder.apkscan.scanresults.ScanResultsActivity
+import com.cooperthecoder.apkscan.types.SortableApplicationInfo
 
-class PackagesListAdapter(private val context: Context) : RecyclerView.Adapter<PackagesListAdapter.Holder>() {
+class PackagesListAdapter(private val context: Context, packages: List<ApplicationInfo>) : RecyclerView.Adapter<PackagesListAdapter.Holder>() {
 
     private val className = javaClass.name
 
-    private val installedPackages = ArrayList<ApplicationInfo>()
+    private val installedPackages = SortableApplicationInfo.sortableList(packages).sorted()
+
 
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
         val appIcon: ImageView = view.findViewById(R.id.appIcon)
@@ -47,9 +49,4 @@ class PackagesListAdapter(private val context: Context) : RecyclerView.Adapter<P
         }
     }
 
-    fun addPackages(packages: List<ApplicationInfo>) {
-        installedPackages.clear()
-        installedPackages.addAll(packages)
-        notifyDataSetChanged()
-    }
 }
