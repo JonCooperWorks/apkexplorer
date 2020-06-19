@@ -13,7 +13,6 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 
 class AppInfoSection(private val appInfo: InstalledAppInfo) : Section(
     SectionParameters.builder()
-        .headerResourceId(R.layout.app_info_header)
         .itemResourceId(R.layout.app_info_section)
         .build()
 ) {
