@@ -18,7 +18,7 @@ class PackagesListAdapter(private val context: Context, packages: List<Applicati
 
     private val className = javaClass.name
 
-    private val installedPackages = SortableApplicationInfo.sortableList(packages).sorted()
+    private val installedPackages = SortableApplicationInfo.sortableList(context.packageManager, packages).sorted()
 
 
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
