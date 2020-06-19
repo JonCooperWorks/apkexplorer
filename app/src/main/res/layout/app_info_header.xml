@@ -8,6 +8,7 @@
         android:id="@+id/appInfoTitle"
         android:text="@string/app_info_header_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textStyle="bold" />
 
 </LinearLayout>

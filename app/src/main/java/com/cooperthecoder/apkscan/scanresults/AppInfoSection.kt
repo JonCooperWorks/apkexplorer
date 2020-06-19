@@ -21,6 +21,7 @@ class AppInfoSection(private val appInfo: InstalledAppInfo) : Section(
     class AppInfoHolder(view: View) : RecyclerView.ViewHolder(view) {
         val packageNameTextView: TextView = view.findViewById(R.id.packageName)
         val packageIcon: ImageView = view.findViewById(R.id.appIcon)
+        val appName: TextView = view.findViewById(R.id.appName)
     }
 
     override fun getContentItemsTotal(): Int {
@@ -32,6 +33,7 @@ class AppInfoSection(private val appInfo: InstalledAppInfo) : Section(
         val vh = holder as AppInfoHolder
         vh.packageNameTextView.text = appInfo.packageName
         vh.packageIcon.setImageDrawable(appInfo.icon)
+        vh.appName.text = appInfo.appName
     }
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {

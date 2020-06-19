@@ -20,7 +20,9 @@ class PackagesListAdapter(private val context: Context) : RecyclerView.Adapter<P
     private val installedPackages = ArrayList<ApplicationInfo>()
 
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
-
+        val appIcon: ImageView = view.findViewById(R.id.appIcon)
+        val appPackageName: TextView = view.findViewById(R.id.applicationPackageName)
+        val appName: TextView = view.findViewById(R.id.applicationName)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -35,8 +37,9 @@ class PackagesListAdapter(private val context: Context) : RecyclerView.Adapter<P
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val pkg = installedPackages[position]
         Log.d(className,"Found package $pkg")
-        holder.itemView.findViewById<ImageView>(R.id.appIcon).setImageDrawable(pkg.loadIcon(context.packageManager))
-        holder.itemView.findViewById<TextView>(R.id.applicationPackageName).text = pkg.packageName
+        holder.appIcon.setImageDrawable(pkg.loadIcon(context.packageManager))
+        holder.appPackageName.text = pkg.packageName
+        holder.appName.text = pkg.loadLabel(context.packageManager)
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ScanResultsActivity::class.java)
             intent.putExtra(ScanResultsActivity.PACKAGE_NAME, pkg.packageName)

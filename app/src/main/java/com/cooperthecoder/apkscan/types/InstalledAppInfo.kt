@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import java.io.File
 
 data class InstalledAppInfo(
+    val appName: String,
     val packageName: String,
     val activities: Array<ActivityInfo>,
     val receivers: Array<ActivityInfo>,
@@ -22,6 +23,7 @@ data class InstalledAppInfo(
 
         other as InstalledAppInfo
 
+        if (appName != other.appName) return false
         if (packageName != other.packageName) return false
         if (!activities.contentEquals(other.activities)) return false
         if (!receivers.contentEquals(other.receivers)) return false
@@ -37,7 +39,8 @@ data class InstalledAppInfo(
     }
 
     override fun hashCode(): Int {
-        var result = packageName.hashCode()
+        var result = appName.hashCode()
+        result = 31 * result + packageName.hashCode()
         result = 31 * result + activities.contentHashCode()
         result = 31 * result + receivers.contentHashCode()
         result = 31 * result + services.contentHashCode()

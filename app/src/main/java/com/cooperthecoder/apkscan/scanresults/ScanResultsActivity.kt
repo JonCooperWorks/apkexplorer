@@ -58,6 +58,7 @@ class ScanResultsActivity : AppCompatActivity() {
                 }
 
             return@fromCallable InstalledAppInfo(
+                appName = packageInfo.applicationInfo.loadLabel(pm).toString(),
                 packageName = packageInfo.packageName,
                 activities = getOrEmptyArray(packageInfo::activities),
                 receivers = getOrEmptyArray(packageInfo::receivers),

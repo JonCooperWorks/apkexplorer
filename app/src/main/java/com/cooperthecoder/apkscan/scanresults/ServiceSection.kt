@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
+import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
 import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
@@ -20,6 +21,7 @@ class ServiceSection(private val services: Array<ServiceInfo>) : Section(
         val permissionRequired: TextView = view.findViewById(R.id.permissionRequired)
         val exportedStatus: TextView = view.findViewById(R.id.exportedStatus)
         val enabledStatus: TextView = view.findViewById(R.id.enabledStatus)
+        val flags: TextView = view.findViewById(R.id.enabledFlags)
     }
 
     override fun getContentItemsTotal(): Int {
@@ -45,6 +47,12 @@ class ServiceSection(private val services: Array<ServiceInfo>) : Section(
             "Enabled "
         } else {
             "Disabled"
+        }
+
+        val flags = BinaryFlagUtils.getEnabledFlags(serviceInfo)
+        if (flags.isNotEmpty()) {
+            val enabledFlagString = "Flags:\n${flags.joinToString("\n")}"
+            vh.flags.text = enabledFlagString
         }
     }
 
