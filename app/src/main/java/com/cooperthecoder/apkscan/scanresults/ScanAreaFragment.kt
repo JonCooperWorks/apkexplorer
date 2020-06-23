@@ -34,7 +34,6 @@ class ScanAreaFragment : Fragment(R.layout.fragment_scan_area) {
         val adapter = SectionedRecyclerViewAdapter()
         contentRecyclerView.adapter = adapter
 
-        adapter.addSection(AppInfoSection(installedAppInfo))
         when (sectionName) {
             SectionName.ACTIVITIES -> {
                 adapter.addSection(ActivitySection(installedAppInfo.activities))

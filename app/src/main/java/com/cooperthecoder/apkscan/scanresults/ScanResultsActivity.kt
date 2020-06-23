@@ -78,6 +78,9 @@ class ScanResultsActivity : AppCompatActivity() {
             .subscribe(
                 { installedAppInfo: InstalledAppInfo ->
                     Log.d(tag, installedAppInfo.toString())
+                    appIcon.setImageDrawable(installedAppInfo.icon)
+                    appName.text = installedAppInfo.appName
+                    appPackageName.text = installedAppInfo.packageName
                     val pagerAdapter = ScanResultsAdapter(this, installedAppInfo)
                     scanResultsPager.adapter = pagerAdapter
                     val tabLayoutMediator =
