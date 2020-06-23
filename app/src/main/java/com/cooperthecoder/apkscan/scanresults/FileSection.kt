@@ -11,7 +11,6 @@ import java.io.File
 
 class FileSection(private val publicFiles: List<File>) : Section(
     SectionParameters.builder()
-        .headerResourceId(R.layout.files_header)
         .itemResourceId(R.layout.file_item)
         .build()
 ) {

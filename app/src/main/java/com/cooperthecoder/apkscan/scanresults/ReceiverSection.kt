@@ -13,7 +13,6 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 class ReceiverSection(private val receivers: Array<ActivityInfo>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.receiver_item)
-        .headerResourceId(R.layout.receiver_header)
         .build()
 ) {
 

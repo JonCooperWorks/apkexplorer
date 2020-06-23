@@ -12,7 +12,6 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 class PermissionSection(private val permissions: Array<PermissionInfo>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.permission_item)
-        .headerResourceId(R.layout.permission_header)
         .build()
 ) {
 

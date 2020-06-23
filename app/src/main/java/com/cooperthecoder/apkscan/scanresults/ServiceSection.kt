@@ -13,7 +13,6 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 class ServiceSection(private val services: Array<ServiceInfo>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.service_item)
-        .headerResourceId(R.layout.service_header)
         .build()
 ) {
     class ServiceHolder(view: View) : RecyclerView.ViewHolder(view) {

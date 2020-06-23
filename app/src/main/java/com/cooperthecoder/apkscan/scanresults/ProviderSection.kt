@@ -13,7 +13,6 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 
 class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
     SectionParameters.builder()
-        .headerResourceId(R.layout.provider_header)
         .itemResourceId(R.layout.provider_item)
         .build()
 ) {

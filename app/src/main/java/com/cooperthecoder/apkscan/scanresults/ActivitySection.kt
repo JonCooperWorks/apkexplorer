@@ -13,7 +13,6 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 class ActivitySection(private val activities: Array<ActivityInfo>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.activity_item)
-        .headerResourceId(R.layout.activity_header)
         .build()
 ) {
 

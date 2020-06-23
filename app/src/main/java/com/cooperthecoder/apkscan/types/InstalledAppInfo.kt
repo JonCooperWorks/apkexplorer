@@ -3,6 +3,7 @@ package com.cooperthecoder.apkscan.types
 import android.content.pm.*
 import android.graphics.drawable.Drawable
 import java.io.File
+import java.io.Serializable
 
 data class InstalledAppInfo(
     val appName: String,
@@ -16,7 +17,7 @@ data class InstalledAppInfo(
     val permissions: Array<PermissionInfo>,
     val version: String,
     val icon: Drawable
-) {
+) : Serializable {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

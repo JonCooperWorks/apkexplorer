@@ -11,7 +11,6 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 class SharedLibrarySection(private val sharedLibraries: Array<String>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.shared_library_item)
-        .headerResourceId(R.layout.shared_library_header)
         .build()
 ) {
 

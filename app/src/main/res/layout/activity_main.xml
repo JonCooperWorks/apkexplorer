@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".main.MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/colorPrimaryLight"
+        android:elevation="4dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/packagesList"
         android:layout_width="match_parent"
