@@ -34,10 +34,7 @@ class ScanResultsActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
-    }
 
-    override fun onResume() {
-        super.onResume()
         val packageName = intent.getStringExtra(PACKAGE_NAME)!!
         Flowable.fromCallable {
             val pm = applicationContext.packageManager

@@ -17,10 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         packagesList.layoutManager = LinearLayoutManager(this)
-    }
 
-    override fun onResume() {
-        super.onResume()
         Flowable.fromCallable {
             val pm = applicationContext.packageManager
             return@fromCallable pm.getInstalledApplications(PackageManager.GET_META_DATA)
