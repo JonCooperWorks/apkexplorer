@@ -52,8 +52,6 @@ class ScanResultsActivity : AppCompatActivity() {
             val version = packageInfo.versionName ?: getString(R.string.no_version_provided)
             val publicFiles = File(packageInfo.applicationInfo.dataDir)
                 .walk()
-                .iterator()
-                .asSequence()
                 .toList()
                 .filter { file ->
                     file.isFile
