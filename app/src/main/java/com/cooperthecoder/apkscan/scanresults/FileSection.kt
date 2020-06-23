@@ -9,7 +9,7 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
 import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 import java.io.File
 
-class FileSection(private val publicFiles: List<File>) : Section(
+class FileSection(private val publicFiles: Array<File>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.file_item)
         .build()

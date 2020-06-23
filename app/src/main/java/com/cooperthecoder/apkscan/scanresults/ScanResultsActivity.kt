@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
 import com.cooperthecoder.apkscan.types.InstalledAppInfo
 import com.cooperthecoder.apkscan.R
 import com.google.android.material.tabs.TabLayoutMediator
@@ -55,7 +56,8 @@ class ScanResultsActivity : AppCompatActivity() {
                 .toList()
                 .filter { file ->
                     file.isFile
-                }
+                }.toTypedArray()
+
 
             return@fromCallable InstalledAppInfo(
                 appName = packageInfo.applicationInfo.loadLabel(pm).toString(),
@@ -68,7 +70,7 @@ class ScanResultsActivity : AppCompatActivity() {
                 services = getOrEmptyArray(packageInfo::services),
                 sharedLibraries = getOrEmptyArray(packageInfo.applicationInfo::sharedLibraryFiles),
                 version = version,
-                icon = packageInfo.applicationInfo.loadIcon(pm)
+                icon = packageInfo.applicationInfo.loadIcon(pm).toBitmap()
             )
         }
             .subscribeOn(Schedulers.newThread())
@@ -76,7 +78,7 @@ class ScanResultsActivity : AppCompatActivity() {
             .subscribe(
                 { installedAppInfo: InstalledAppInfo ->
                     Log.d(tag, installedAppInfo.toString())
-                    appIcon.setImageDrawable(installedAppInfo.icon)
+                    appIcon.setImageBitmap(installedAppInfo.icon)
                     appName.text = installedAppInfo.appName
                     appPackageName.text = installedAppInfo.packageName
                     val pagerAdapter = ScanResultsAdapter(this, installedAppInfo)

@@ -20,14 +20,15 @@ class ScanAreaFragment : Fragment(R.layout.fragment_scan_area) {
             return ScanAreaFragment().apply {
                 arguments = Bundle().apply {
                     putString(SECTION_NAME, sectionName)
-                    putSerializable(INSTALLED_APP_INFO, installedAppInfo)
+                    putParcelable(INSTALLED_APP_INFO, installedAppInfo)
                 }
             }
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val installedAppInfo = requireArguments().getSerializable(INSTALLED_APP_INFO) as InstalledAppInfo
+        val installedAppInfo =
+            requireArguments().getParcelable<InstalledAppInfo>(INSTALLED_APP_INFO)!!
         val sectionName = requireArguments().getString(SECTION_NAME)
             ?: throw IllegalStateException("Section name is required")
         contentRecyclerView.layoutManager = LinearLayoutManager(context)

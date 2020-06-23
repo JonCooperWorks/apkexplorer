@@ -1,7 +1,10 @@
 package com.cooperthecoder.apkscan.types
 
 import android.content.pm.*
+import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.os.Parcel
+import android.os.Parcelable
 import java.io.File
 import java.io.Serializable
 
@@ -12,12 +15,29 @@ data class InstalledAppInfo(
     val receivers: Array<ActivityInfo>,
     val services: Array<ServiceInfo>,
     val providers: Array<ProviderInfo>,
-    val publicFiles: List<File>,
+    val publicFiles: Array<File>,
     val sharedLibraries: Array<String>,
     val permissions: Array<PermissionInfo>,
     val version: String,
-    val icon: Drawable
-) : Serializable {
+    val icon: Bitmap
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.createTypedArray(ActivityInfo.CREATOR)!!,
+        parcel.createTypedArray(ActivityInfo.CREATOR)!!,
+        parcel.createTypedArray(ServiceInfo.CREATOR)!!,
+        parcel.createTypedArray(ProviderInfo.CREATOR)!!,
+        parcel.createStringArray()!!.map { filename ->
+            File(filename)
+        }.toTypedArray(),
+        parcel.createStringArray()!!,
+        parcel.createTypedArray(PermissionInfo.CREATOR)!!,
+        parcel.readString()!!,
+        parcel.readParcelable(Bitmap::class.java.classLoader)!!
+    ) {
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -52,6 +72,38 @@ data class InstalledAppInfo(
         result = 31 * result + version.hashCode()
         result = 31 * result + icon.hashCode()
         return result
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(appName)
+        parcel.writeString(packageName)
+        parcel.writeTypedArray(activities, flags)
+        parcel.writeTypedArray(receivers, flags)
+        parcel.writeTypedArray(services, flags)
+        parcel.writeTypedArray(providers, flags)
+        parcel.writeStringArray(
+            publicFiles.map { file ->
+                file.absolutePath
+            }.toTypedArray()
+        )
+        parcel.writeStringArray(sharedLibraries)
+        parcel.writeTypedArray(permissions, flags)
+        parcel.writeString(version)
+        parcel.writeParcelable(icon, flags)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<InstalledAppInfo> {
+        override fun createFromParcel(parcel: Parcel): InstalledAppInfo {
+            return InstalledAppInfo(parcel)
+        }
+
+        override fun newArray(size: Int): Array<InstalledAppInfo?> {
+            return arrayOfNulls(size)
+        }
     }
 
 }
