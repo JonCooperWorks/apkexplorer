@@ -62,6 +62,10 @@ class ScanAreaFragment : Fragment(R.layout.fragment_scan_area) {
             SectionName.PERMISSIONS -> {
                 adapter.addSection(PermissionSection(installedAppInfo.permissions))
             }
+
+            else -> {
+                throw IllegalArgumentException("$sectionName is not a valid Section")
+            }
         }
     }
 }
