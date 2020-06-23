@@ -29,8 +29,7 @@ class ScanAreaFragment : Fragment(R.layout.fragment_scan_area) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val installedAppInfo =
             requireArguments().getParcelable<InstalledAppInfo>(INSTALLED_APP_INFO)!!
-        val sectionName = requireArguments().getString(SECTION_NAME)
-            ?: throw IllegalStateException("Section name is required")
+        val sectionName = requireArguments().getString(SECTION_NAME)!!
         contentRecyclerView.layoutManager = LinearLayoutManager(context)
         val adapter = SectionedRecyclerViewAdapter()
         contentRecyclerView.adapter = adapter
