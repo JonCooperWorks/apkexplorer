@@ -10,14 +10,14 @@ import com.cooperthecoder.apkscan.types.SectionName
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_scan_area.*
 
-class ScanAreaFragment : Fragment(R.layout.fragment_scan_area) {
+class ScanTabFragment : Fragment(R.layout.fragment_scan_area) {
 
     companion object {
         const val INSTALLED_APP_INFO = "installed_app_info"
         const val SECTION_NAME = "section_name"
 
         fun create(sectionName: String, installedAppInfo: InstalledAppInfo): Fragment {
-            return ScanAreaFragment().apply {
+            return ScanTabFragment().apply {
                 arguments = Bundle().apply {
                     putString(SECTION_NAME, sectionName)
                     putParcelable(INSTALLED_APP_INFO, installedAppInfo)

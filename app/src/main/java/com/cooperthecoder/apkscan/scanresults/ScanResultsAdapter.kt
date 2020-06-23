@@ -49,7 +49,7 @@ class ScanResultsAdapter(
 
     override fun createFragment(position: Int): Fragment {
         val name = sections[position]
-        return ScanAreaFragment.create(name, installedAppInfo)
+        return ScanTabFragment.create(name, installedAppInfo)
     }
 
     fun sectionName(position: Int): String {
