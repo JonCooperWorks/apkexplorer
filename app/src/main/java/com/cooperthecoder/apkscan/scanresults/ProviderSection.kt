@@ -71,13 +71,13 @@ class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
             "Single Process"
         }
 
-        if (providerInfo.readPermission != "") {
+        if (providerInfo.readPermission ?: "" != "") {
             vh.readPermission.text = providerInfo.readPermission
         } else {
             vh.readPermission.visibility = View.GONE
         }
 
-        if (providerInfo.writePermission != "") {
+        if (providerInfo.writePermission ?: "" != "") {
 
         } else {
             vh.writePermission.visibility = View.GONE
@@ -87,7 +87,7 @@ class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
         if (pathPermissions ?: "" != "") {
             vh.pathPermissions.text = providerInfo.pathPermissions!!.joinToString(" ,")
         } else {
-            vh.writePermission.visibility = View.GONE
+            vh.pathPermissions.visibility = View.GONE
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
