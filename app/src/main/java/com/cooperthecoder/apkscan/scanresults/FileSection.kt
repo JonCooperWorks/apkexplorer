@@ -19,11 +19,11 @@ class FileSection(private val publicFiles: Array<File>) : Section(
     }
 
     override fun getContentItemsTotal(): Int {
-        return publicFiles.asSequence().count()
+        return publicFiles.size
     }
 
     override fun onBindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val file = publicFiles.asSequence().elementAt(position)
+        val file = publicFiles[position]
         val vh = holder as FilesHolder
         vh.filenameText.text = file.absolutePath
     }
