@@ -9,4 +9,6 @@
     <string name="service_header_text">Services</string>
     <string name="receiver_header_text">Receivers</string>
     <string name="provider_header_text">Providers</string>
+    <string name="search_hint">Package or App Name</string>
+    <string name="action_search">Search</string>
 </resources>

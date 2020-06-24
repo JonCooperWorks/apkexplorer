@@ -12,6 +12,13 @@
 
         <activity android:name=".scanresults.ScanResultsActivity" />
         <activity android:name=".main.MainActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

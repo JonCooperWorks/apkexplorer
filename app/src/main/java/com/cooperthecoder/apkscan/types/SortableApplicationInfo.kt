@@ -7,10 +7,10 @@ class SortableApplicationInfo(private val pm: PackageManager, applicationInfo: A
     ApplicationInfo(applicationInfo), Comparable<ApplicationInfo> {
 
     companion object {
-        fun sortableList(pm: PackageManager, input: List<ApplicationInfo>): List<SortableApplicationInfo> {
+        fun sortedList(pm: PackageManager, input: List<ApplicationInfo>): List<ApplicationInfo> {
             return input.map { applicationInfo ->
                 SortableApplicationInfo(pm, applicationInfo)
-            }
+            }.sorted()
         }
     }
 
