@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
+import com.cooperthecoder.apkscan.utils.EmojiMaps
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
 
@@ -23,7 +24,9 @@ class AppInfoSection(private val flags: List<String>) : Section(
 
     override fun onBindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val vh = holder as AppInfoHolder
-        vh.flagName.text = flags[position]
+        val flag = flags[position]
+        val associatedEmoji = EmojiMaps.ACTIVITIES[flag] ?: "✅"
+        vh.flagName.text = "$associatedEmoji $flag"
     }
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
