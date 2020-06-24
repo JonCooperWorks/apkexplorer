@@ -19,7 +19,8 @@ data class InstalledAppInfo(
     val sharedLibraries: Array<String>,
     val permissions: Array<PermissionInfo>,
     val version: String,
-    val icon: Bitmap
+    val icon: Bitmap,
+    val applicationInfo: ApplicationInfo
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
@@ -34,7 +35,8 @@ data class InstalledAppInfo(
         parcel.createStringArray()!!,
         parcel.createTypedArray(PermissionInfo.CREATOR)!!,
         parcel.readString()!!,
-        parcel.readParcelable(Bitmap::class.java.classLoader)!!
+        parcel.readParcelable(Bitmap::class.java.classLoader)!!,
+        parcel.readParcelable(ApplicationInfo::class.java.classLoader)!!
     ) {
     }
 
@@ -55,6 +57,7 @@ data class InstalledAppInfo(
         if (!permissions.contentEquals(other.permissions)) return false
         if (version != other.version) return false
         if (icon != other.icon) return false
+        if (applicationInfo != other.applicationInfo) return false
 
         return true
     }
@@ -71,6 +74,7 @@ data class InstalledAppInfo(
         result = 31 * result + permissions.contentHashCode()
         result = 31 * result + version.hashCode()
         result = 31 * result + icon.hashCode()
+        result = 31 * result + applicationInfo.hashCode()
         return result
     }
 
@@ -90,6 +94,7 @@ data class InstalledAppInfo(
         parcel.writeTypedArray(permissions, flags)
         parcel.writeString(version)
         parcel.writeParcelable(icon, flags)
+        parcel.writeParcelable(applicationInfo, flags)
     }
 
     override fun describeContents(): Int {

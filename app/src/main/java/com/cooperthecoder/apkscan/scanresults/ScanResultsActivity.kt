@@ -70,7 +70,8 @@ class ScanResultsActivity : AppCompatActivity() {
                 services = getOrEmptyArray(packageInfo::services),
                 sharedLibraries = getOrEmptyArray(packageInfo.applicationInfo::sharedLibraryFiles),
                 version = version,
-                icon = packageInfo.applicationInfo.loadIcon(pm).toBitmap()
+                icon = packageInfo.applicationInfo.loadIcon(pm).toBitmap(),
+                applicationInfo = applicationInfo
             )
         }
             .subscribeOn(Schedulers.newThread())

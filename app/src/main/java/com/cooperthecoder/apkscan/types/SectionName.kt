@@ -1,6 +1,7 @@
 package com.cooperthecoder.apkscan.types
 
 object SectionName {
+    const val APP_INFO = "App Flags"
     const val ACTIVITIES = "Activities"
     const val RECEIVERS = "Receivers"
     const val PROVIDERS = "Providers"

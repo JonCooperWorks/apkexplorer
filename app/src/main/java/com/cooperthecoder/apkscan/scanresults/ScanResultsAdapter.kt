@@ -14,6 +14,7 @@ class ScanResultsAdapter(
     private val sections = ArrayList<String>()
 
     init {
+        sections.add(SectionName.APP_INFO)
         if (installedAppInfo.activities.isNotEmpty()) {
             sections.add(SectionName.ACTIVITIES)
         }
