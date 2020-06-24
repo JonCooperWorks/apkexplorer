@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
+import com.cooperthecoder.apkscan.types.ComponentVisibility
 import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
@@ -39,9 +40,9 @@ class ActivitySection(private val activities: Array<ActivityInfo>) : Section(
         }
 
         vh.exportedStatus.text = if (activityInfo.exported) {
-            "Exported"
+            "⚠️ ${ComponentVisibility.PUBLIC}"
         } else {
-            "Not Exported"
+            "✅ ${ComponentVisibility.PRIVATE}"
         }
         vh.enabledStatus.text = if (activityInfo.enabled) {
             "Enabled"

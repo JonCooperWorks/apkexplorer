@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
+import com.cooperthecoder.apkscan.types.ComponentVisibility
 import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
@@ -16,7 +17,6 @@ class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
         .itemResourceId(R.layout.provider_item)
         .build()
 ) {
-
     class ProviderHolder(view: View) : RecyclerView.ViewHolder(view) {
         val providerName: TextView = view.findViewById(R.id.providerName)
         val exportedStatus: TextView = view.findViewById(R.id.exportedStatus)
@@ -39,12 +39,12 @@ class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
         val providerInfo = providers[position]
         vh.providerName.text = providerInfo.name
         vh.exportedStatus.text = if (providerInfo.exported) {
-            "Exported"
+            "⚠️ ${ComponentVisibility.PUBLIC}"
         } else {
-            "Not Exported"
+            "✅ ${ComponentVisibility.PRIVATE}"
         }
         vh.enabledStatus.text = if (providerInfo.enabled) {
-            "Enabled "
+            "Enabled"
         } else {
             "Disabled"
         }
