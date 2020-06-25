@@ -52,7 +52,7 @@ data class InstalledAppInfo(
         if (!receivers.contentEquals(other.receivers)) return false
         if (!services.contentEquals(other.services)) return false
         if (!providers.contentEquals(other.providers)) return false
-        if (publicFiles != other.publicFiles) return false
+        if (!publicFiles.contentEquals(other.publicFiles)) return false
         if (!sharedLibraries.contentEquals(other.sharedLibraries)) return false
         if (!permissions.contentEquals(other.permissions)) return false
         if (version != other.version) return false
