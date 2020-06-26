@@ -9,4 +9,5 @@ object SectionName {
     const val SERVICES = "Services"
     const val SHARED_LIBRARIES = "Shared Libraries"
     const val FILES = "Public Files"
+    const val NATIVE_LIBARIES = "Native Libraries"
 }

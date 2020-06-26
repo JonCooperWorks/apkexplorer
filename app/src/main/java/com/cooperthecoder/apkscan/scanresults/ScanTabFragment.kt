@@ -10,6 +10,7 @@ import com.cooperthecoder.apkscan.types.SectionName
 import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_scan_area.*
+import java.io.File
 
 class ScanTabFragment : Fragment(R.layout.fragment_scan_area) {
 
@@ -68,6 +69,10 @@ class ScanTabFragment : Fragment(R.layout.fragment_scan_area) {
 
             SectionName.PERMISSIONS -> {
                 adapter.addSection(PermissionSection(installedAppInfo.permissions))
+            }
+
+            SectionName.NATIVE_LIBARIES -> {
+                adapter.addSection(NativeLibrarySection(installedAppInfo.nativeLibraries))
             }
 
             else -> {

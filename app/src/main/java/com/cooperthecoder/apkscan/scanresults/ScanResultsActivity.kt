@@ -71,7 +71,9 @@ class ScanResultsActivity : AppCompatActivity() {
                 sharedLibraries = getOrEmptyArray(packageInfo.applicationInfo::sharedLibraryFiles),
                 version = version,
                 icon = packageInfo.applicationInfo.loadIcon(pm).toBitmap(),
-                applicationInfo = applicationInfo
+                applicationInfo = applicationInfo,
+                nativeLibraries = getOrEmptyArray(File(applicationInfo.nativeLibraryDir)::list)
+
             )
         }
             .subscribeOn(Schedulers.newThread())

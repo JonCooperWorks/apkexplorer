@@ -4,6 +4,7 @@ object EmojiMaps {
     val ACTIVITIES = mapOf(
         Pair("FLAG_DEBUGGABLE", "⚠️"),
         Pair("FLAG_ALLOW_BACKUP", "⚠️"),
-        Pair("FLAG_USES_CLEARTEXT_TRAFFIC", "⚠️")
+        Pair("FLAG_USES_CLEARTEXT_TRAFFIC", "⚠️"),
+        Pair("FLAG_EXTERNAL_STORAGE", "⚠️")
     )
 }

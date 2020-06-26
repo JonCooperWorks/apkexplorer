@@ -42,6 +42,10 @@ class ScanResultsAdapter(
         if (installedAppInfo.sharedLibraries.isNotEmpty()) {
             sections.add(SectionName.SHARED_LIBRARIES)
         }
+
+        if (installedAppInfo.nativeLibraries.isNotEmpty()) {
+            sections.add(SectionName.NATIVE_LIBARIES)
+        }
     }
 
     override fun getItemCount(): Int {
