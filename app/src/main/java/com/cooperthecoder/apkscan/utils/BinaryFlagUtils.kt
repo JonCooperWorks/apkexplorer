@@ -1,7 +1,9 @@
 package com.cooperthecoder.apkscan.utils
 
-import android.content.pm.*
-import java.lang.IllegalArgumentException
+import android.content.pm.ActivityInfo
+import android.content.pm.ApplicationInfo
+import android.content.pm.ProviderInfo
+import android.content.pm.ServiceInfo
 
 object BinaryFlagUtils {
     fun getEnabledFlags(componentInfo: Any): List<String> {

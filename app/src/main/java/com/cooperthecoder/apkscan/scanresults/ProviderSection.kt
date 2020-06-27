@@ -10,7 +10,6 @@ import com.cooperthecoder.apkscan.types.ComponentVisibility
 import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
-import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 
 class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
     SectionParameters.builder()
@@ -119,7 +118,4 @@ class ProviderSection(private val providers: Array<ProviderInfo>) : Section(
         return ProviderHolder(view)
     }
 
-    override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return EmptyViewHolder(view)
-    }
 }

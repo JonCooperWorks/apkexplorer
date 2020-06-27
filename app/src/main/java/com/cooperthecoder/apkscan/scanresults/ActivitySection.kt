@@ -9,7 +9,6 @@ import com.cooperthecoder.apkscan.types.ComponentVisibility
 import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
-import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 
 class ActivitySection(private val activities: Array<ActivityInfo>) : Section(
     SectionParameters.builder()
@@ -63,9 +62,4 @@ class ActivitySection(private val activities: Array<ActivityInfo>) : Section(
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
         return ActivityHolder(view)
     }
-
-    override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return EmptyViewHolder(view)
-    }
-
 }

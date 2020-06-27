@@ -2,11 +2,9 @@ package com.cooperthecoder.apkscan.types
 
 import android.content.pm.*
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
 import android.os.Parcel
 import android.os.Parcelable
 import java.io.File
-import java.io.Serializable
 
 data class InstalledAppInfo(
     val appName: String,

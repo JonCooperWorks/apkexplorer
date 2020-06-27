@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
-import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 
 class SharedLibrarySection(private val sharedLibraries: Array<String>) : Section(
     SectionParameters.builder()
@@ -30,9 +29,5 @@ class SharedLibrarySection(private val sharedLibraries: Array<String>) : Section
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
         return SharedLibrariesHolder(view)
-    }
-
-    override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return EmptyViewHolder(view)
     }
 }

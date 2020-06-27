@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
-import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 import java.io.File
 
 class FileSection(private val publicFiles: Array<File>) : Section(
@@ -30,9 +29,5 @@ class FileSection(private val publicFiles: Array<File>) : Section(
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
         return FilesHolder(view)
-    }
-
-    override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return EmptyViewHolder(view)
     }
 }

@@ -7,13 +7,13 @@ import com.cooperthecoder.apkscan.R
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
 
-class NativeLibrarySection(private val nativeLibraryFileNames: Array<String>): Section(
+class NativeLibrarySection(private val nativeLibraryFileNames: Array<String>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.native_lib_item)
         .build()
 ) {
 
-    class NativeLibraryHolder(view: View): RecyclerView.ViewHolder(view) {
+    class NativeLibraryHolder(view: View) : RecyclerView.ViewHolder(view) {
         val filename: TextView = view.findViewById(R.id.nativeLibPath)
     }
 

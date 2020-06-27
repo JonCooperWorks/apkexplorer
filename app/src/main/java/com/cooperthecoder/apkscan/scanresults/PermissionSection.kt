@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cooperthecoder.apkscan.R
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
-import io.github.luizgrp.sectionedrecyclerviewadapter.utils.EmptyViewHolder
 
 class PermissionSection(private val permissions: Array<PermissionInfo>) : Section(
     SectionParameters.builder()
@@ -31,9 +30,5 @@ class PermissionSection(private val permissions: Array<PermissionInfo>) : Sectio
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
         return PermissionHolder(view)
-    }
-
-    override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return EmptyViewHolder(view)
     }
 }
