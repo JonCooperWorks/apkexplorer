@@ -105,6 +105,13 @@ class ScanResultsActivity : AppCompatActivity() {
             )
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        //Clear the Activity's bundle of the subsidiary fragments' bundles.
+        // Prevents android.os.TransactionTooLargeException
+        outState.clear()
+    }
+
     private inline fun <reified T> getOrEmptyArray(method: () -> Array<T>?): Array<T> {
         return try {
             method() ?: arrayOf()

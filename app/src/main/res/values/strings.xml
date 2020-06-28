@@ -11,4 +11,6 @@
     <string name="provider_header_text">Providers</string>
     <string name="search_hint">Package or App Name</string>
     <string name="action_search">Search</string>
+    <string name="send_intent_text">Send Intent</string>
+    <string name="intent_data_hint">Data</string>
 </resources>

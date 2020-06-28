@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".interact.InteractActivity"></activity>
         <activity android:name=".scanresults.ScanResultsActivity" />
         <activity android:name=".main.MainActivity">
             <meta-data
