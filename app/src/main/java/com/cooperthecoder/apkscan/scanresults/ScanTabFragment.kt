@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cooperthecoder.apkscan.R
 import com.cooperthecoder.apkscan.types.InstalledAppInfo
 import com.cooperthecoder.apkscan.types.SectionName
-import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_scan_area.*
 
@@ -35,11 +34,9 @@ class ScanTabFragment : Fragment(R.layout.fragment_scan_area) {
         val adapter = SectionedRecyclerViewAdapter()
         contentRecyclerView.adapter = adapter
 
-        val flags = BinaryFlagUtils.getEnabledFlags(installedAppInfo.applicationInfo)
-
         when (sectionName) {
             SectionName.APP_INFO -> {
-                adapter.addSection(AppInfoSection(flags))
+                adapter.addSection(AppFlagsSection(installedAppInfo.appFlags))
             }
 
             SectionName.ACTIVITIES -> {

@@ -8,7 +8,7 @@ import com.cooperthecoder.apkscan.utils.EmojiMaps
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
 
-class AppInfoSection(private val flags: List<String>) : Section(
+class AppFlagsSection(private val flags: Array<String>) : Section(
     SectionParameters.builder()
         .itemResourceId(R.layout.app_info)
         .build()

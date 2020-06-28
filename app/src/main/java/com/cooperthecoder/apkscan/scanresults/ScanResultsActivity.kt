@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import com.cooperthecoder.apkscan.R
 import com.cooperthecoder.apkscan.types.InstalledAppInfo
+import com.cooperthecoder.apkscan.utils.BinaryFlagUtils
 import com.google.android.material.tabs.TabLayoutMediator
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Flowable
@@ -71,9 +72,8 @@ class ScanResultsActivity : AppCompatActivity() {
                 sharedLibraries = getOrEmptyArray(packageInfo.applicationInfo::sharedLibraryFiles),
                 version = version,
                 icon = packageInfo.applicationInfo.loadIcon(pm).toBitmap(),
-                applicationInfo = applicationInfo,
-                nativeLibraries = getOrEmptyArray(File(applicationInfo.nativeLibraryDir)::list)
-
+                nativeLibraries = getOrEmptyArray(File(applicationInfo.nativeLibraryDir)::list),
+                appFlags = BinaryFlagUtils.getEnabledFlags(applicationInfo).toTypedArray()
             )
         }
             .subscribeOn(Schedulers.newThread())
