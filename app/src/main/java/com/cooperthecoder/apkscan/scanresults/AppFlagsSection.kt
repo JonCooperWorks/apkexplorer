@@ -10,7 +10,7 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
 
 class AppFlagsSection(private val flags: Array<String>) : Section(
     SectionParameters.builder()
-        .itemResourceId(R.layout.app_info)
+        .itemResourceId(R.layout.app_flag_item)
         .build()
 ) {
 
