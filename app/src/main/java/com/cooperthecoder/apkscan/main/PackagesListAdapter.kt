@@ -60,7 +60,7 @@ class PackagesListAdapter(private val context: Context, packages: List<Applicati
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence): FilterResults {
-                val lookup = constraint.toString()
+                val lookup = constraint.toString().toLowerCase(Locale.getDefault())
                 val filteredList = ArrayList<ApplicationInfo>()
                 for (pkg in installedPackages) {
                     val appName = pkg.loadLabel(context.packageManager).toString()
