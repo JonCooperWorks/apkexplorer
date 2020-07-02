@@ -66,6 +66,7 @@ class InteractActivity : AppCompatActivity() {
         icon.setImageDrawable(componentInfo.loadIcon(packageManager))
         appTitle.text = componentInfo.loadLabel(packageManager)
         appTitlePackageName.text = packageName
+        activityName.text = componentInfo.name
 
         sendIntentButton.setOnClickListener {
             val intentToSend = Intent().apply {
