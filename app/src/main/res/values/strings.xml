@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">APK Scanner</string>
+    <string name="app_name">APK Explorer</string>
     <string name="no_version_provided">No Version Available</string>
     <string name="app_info_header_text">Enabled Flags</string>
     <string name="files_header_text">Public Files</string>
