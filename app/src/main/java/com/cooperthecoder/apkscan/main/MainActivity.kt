@@ -18,8 +18,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var adapter: PackagesListAdapter
-    lateinit var searchView: SearchView
+    private lateinit var adapter: PackagesListAdapter
+    private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,20 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         packagesList.layoutManager = LinearLayoutManager(this)
 
+        pullToRefresh.setColorSchemeResources(
+            android.R.color.holo_blue_bright,
+            android.R.color.holo_green_light,
+            android.R.color.holo_orange_light,
+            android.R.color.holo_red_light
+        )
+        pullToRefresh.setOnRefreshListener {
+            getInstalledApplications()
+        }
+
+        getInstalledApplications()
+    }
+
+    private fun getInstalledApplications() {
         Flowable.fromCallable {
             val pm = applicationContext.packageManager
             return@fromCallable pm.getInstalledApplications(PackageManager.GET_META_DATA)
@@ -37,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             .subscribe { packages ->
                 adapter = PackagesListAdapter(this, packages)
                 packagesList.adapter = adapter
+                pullToRefresh.isRefreshing = false
             }
     }
 
