@@ -84,9 +84,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id: Int = item.itemId
-        return if (id == R.id.action_search) {
-            true
-        } else super.onOptionsItemSelected(item)
+        return if (id == R.id.action_search) true
+        else super.onOptionsItemSelected(item)
     }
 
     override fun onBackPressed() {
